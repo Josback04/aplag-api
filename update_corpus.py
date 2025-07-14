@@ -26,7 +26,7 @@ MAX_CHARS_PAR_BLOC = 400
 os.makedirs(STAGING_DIR, exist_ok=True)
 os.makedirs(ARCHIVE_DIR, exist_ok=True)
 
-files_to_process=[f for f in os.listdir(STAGING_DIR) if f.endswith(".pdf") ]
+
 
 
 
