@@ -21,7 +21,7 @@ def get_highlighted_diff_html(s1, s2):
 
 def get_final_verdict(cross_score, lexical_metrics, ngram_score):
     """Calcule un score composite et retourne un verdict."""
-    W_CROSS, W_LEV, W_JAC, W_NGRAM = 0.6, 0.15, 0.1, 0.15
+    W_CROSS, W_LEV, W_JAC, W_NGRAM = 0.65, 0.15, 0.15, 0.15
     
     composite_score = (W_CROSS * cross_score) + \
                       (W_LEV * lexical_metrics['levenshtein']) + \
