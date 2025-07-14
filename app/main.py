@@ -45,7 +45,7 @@ async def generate_plagiarism_report(file: UploadFile=File(..., description="Le 
 
     if file.content_type !="application/pdf":
         raise HTTPException(status_code=400, detail="Type de fichier invalide. Veuillez envoyer un PDF. ")
-    temp_dir="temp_files"
+    temp_dir="app/corpus/temp_files"
     staging_dir="staging_files"
     os.makedirs(temp_dir, exist_ok=True)
     os.makedirs(temp_dir, exist_ok=True)

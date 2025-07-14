@@ -94,7 +94,9 @@ def generate_pdf_report(analysis_data: dict, document_name: str) -> str:
     html_string = create_html_report(analysis_data, document_name)
     
     # Créer un dossier temporaire pour les rapports
-    temp_dir = "temp_reports"
+    
+    
+    temp_dir = "app/corpus/temp_reports"
     os.makedirs(temp_dir, exist_ok=True)
     report_path = os.path.join(temp_dir, f"rapport_{document_name}.pdf")
 

@@ -6,4 +6,5 @@
 .vscode/
 .idea/
 
+app/corpus/
 app/models/
