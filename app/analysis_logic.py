@@ -63,7 +63,7 @@ def load_corpus_dataframe():
 # 4. FONCTION PRINCIPALE D'ANALYSE
 # ==============================================================================
 
-def analyze_pdf_for_plagiarism(file_path: str, bi_encoder, cross_encoder, index, df_corpus, top_k_retrieve=10, min_verdict_score=0.7):
+def analyze_pdf_for_plagiarism(file_path: str, bi_encoder, cross_encoder, index, df_corpus, top_k_retrieve=20, min_verdict_score=0.6):
     """
     Fonction principale qui orchestre l'analyse de plagiat d'un fichier PDF.
     Elle prend les modèles pré-chargés en arguments pour être efficace.
@@ -85,7 +85,7 @@ def analyze_pdf_for_plagiarism(file_path: str, bi_encoder, cross_encoder, index,
             return {"message": "Aucune phrase pertinente à analyser après filtrage."}
 
         # --- 2. ÉTAPE DE "RETRIEVE" (Bi-Encoder) ---
-        query_embeddings = bi_encoder.encode(sentences_to_analyze, convert_to_numpy=True, show_progress_bar=False, normalize_embeddings=True)
+        query_embeddings = bi_encoder.encode(sentences_to_analyze, convert_to_numpy=True, show_progress_bar=True, normalize_embeddings=True)
         distances, indices = index.search(query_embeddings, top_k_retrieve)
 
         # --- 3. ÉTAPE DE "RE-RANK" ET ANALYSE COMPOSITE ---
@@ -97,7 +97,7 @@ def analyze_pdf_for_plagiarism(file_path: str, bi_encoder, cross_encoder, index,
             cross_inp = [[query_sentence, hit['sentence']] for hit in retrieved_hits]
             
             # Prédiction avec le Cross-Encoder
-            cross_scores = cross_encoder.predict(cross_inp, show_progress_bar=False)
+            cross_scores = cross_encoder.predict(cross_inp, show_progress_bar=True)
             
             # Trouver le meilleur score
             best_hit_idx = np.argmax(cross_scores)
