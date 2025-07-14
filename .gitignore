@@ -1,10 +1,7 @@
 .DS_Store
 *.pyc
 
-/temp_files/
-/temp_reports/
-/staging_files/
-/archived_files/
+
 
 .vscode/
 .idea/
