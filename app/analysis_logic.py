@@ -21,8 +21,11 @@ CORPUS_DIR = os.path.join(BASE_DIR, "corpus")
 
 BI_ENCODER_NAME = 'sentence-transformers/msmarco-distilbert-base-v4'
 CROSS_ENCODER_NAME = 'antoinelouis/crossencoder-camemberta-base-mmarcoFR'
-FAISS_INDEX_PATH = '/corpus/corpus_doc.index'
-CORPUS_DF_PATH = '/corpus/corpus_dataframe_doc.pkl'
+
+
+# On utilise os.path.join pour construire le chemin correct et complet
+FAISS_INDEX_PATH = os.path.join(CORPUS_DIR, 'corpus_doc.index')
+CORPUS_DF_PATH = os.path.join(CORPUS_DIR, 'corpus_dataframe_doc.pkl')
 TEXT_COLUMN = 'content_block'
 SOURCE_COLUMN = 'title'
 
