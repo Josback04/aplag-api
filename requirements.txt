@@ -8,3 +8,4 @@ sentence-transformers
 PyMuPDF
 nltk
 rapidfuzz
+xhtml2pdf
