@@ -16,14 +16,14 @@ from .functions.ngram_jaccard import calculate_ngram_jaccard
 # 1. CONFIGURATION DES CHEMINS
 #    (Assurez-vous que ces chemins sont corrects par rapport à la racine du projet)
 # ==============================================================================
-
-nltk_data_path = os.path.join(os.path.dirname(__file__), 'nltk_data')
+BASE_DIR = os.path.dirname(__file__)
+nltk_data_path = os.path.join(BASE_DIR, 'nltk_data')
 if nltk_data_path not in nltk.data.path:
     nltk.data.path.append(nltk_data_path)
 
 
 
-BASE_DIR = os.path.dirname(__file__)
+
 CORPUS_DIR = os.path.join(BASE_DIR, "corpus")
 
 BI_ENCODER_NAME = 'sentence-transformers/msmarco-distilbert-base-v4'
