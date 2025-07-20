@@ -30,10 +30,7 @@ TEXT_COLUMN = 'content_block'
 SOURCE_COLUMN = 'title'
 
 # S'assurer que le tokenizer 'punkt' de NLTK est disponible
-try:
-    nltk.data.find('tokenizers/punkt')
-except Exception :
-    nltk.download('punkt')
+
 
 
 def load_bi_encoder():
