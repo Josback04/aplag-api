@@ -3,7 +3,7 @@ import os
 
 # On définit le chemin de destination à l'intérieur de notre application
 # Ce dossier sera créé pendant le build et conservé avec le code
-DOWNLOAD_DIR = 'app/nltk_data'
+DOWNLOAD_DIR = '/app/app/nltk_data'
 
 # On s'assure que le dossier existe
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
