@@ -46,9 +46,9 @@ async def generate_plagiarism_report(file: UploadFile=File(..., description="Le 
     if file.content_type !="application/pdf":
         raise HTTPException(status_code=400, detail="Type de fichier invalide. Veuillez envoyer un PDF. ")
     temp_dir="app/corpus/temp_files"
-    staging_dir="staging_files"
+    staging_dir="app/corpus/staging_files"
     os.makedirs(temp_dir, exist_ok=True)
-    os.makedirs(temp_dir, exist_ok=True)
+    os.makedirs(staging_dir, exist_ok=True)
     upload_path = os.path.join(temp_dir, f"{uuid.uuid4().hex}.pdf")
     report_path = None # Pour stocker le chemin du rapport généré
 
@@ -97,3 +97,4 @@ async def generate_plagiarism_report(file: UploadFile=File(..., description="Le 
     
 
 
+# uvicorn app.main:app --reload  
