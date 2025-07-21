@@ -1,13 +1,16 @@
+# setup_nltk.py
+
 import nltk
-import os
 
-# On définit le chemin de destination à l'intérieur de notre application
-# Ce dossier sera créé pendant le build et conservé avec le code
-DOWNLOAD_DIR = '/app/app/nltk_data'
+# AJOUTEZ 'punkt_tab' à cette liste
+packages = ['punkt', 'punkt_tab', 'stopwords']
 
-# On s'assure que le dossier existe
-os.makedirs(DOWNLOAD_DIR, exist_ok=True)
-
-print(f"Téléchargement des ressources NLTK (punkt) dans le dossier : {DOWNLOAD_DIR}")
-nltk.download('punkt', download_dir=DOWNLOAD_DIR)
-print("Ressources NLTK téléchargées avec succès.")
+for package in packages:
+    try:
+        # Cette vérification peut être simplifiée
+        nltk.data.find(f'tokenizers/{package}')
+        print(f"'{package}' is already downloaded.")
+    except LookupError:
+        print(f"Downloading '{package}'...")
+        nltk.download(package, quiet=True) # L'option quiet évite trop de logs
+        print(f"'{package}' downloaded successfully.")
